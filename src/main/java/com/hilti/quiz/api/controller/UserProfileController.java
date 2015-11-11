@@ -26,13 +26,13 @@ public class UserProfileController {
 				return userProfileService.viewAllUserProfileService();
 	}
 	@RequestMapping("/userProfile/crUpUserProfile")
-	public @ResponseBody Success onUpdate(int empid,String password,String displayPic,String firstName,String lastName,String middleName,String department,String asOfDate,String email){
+	public @ResponseBody Success onUpdate(int empid,String password,String displayPic,String firstName,String lastName,String middleName,String department,String asOfDate,String email, int totalScore){
 		
 		UserProfile UserProfile = null; 
 		
 		try{
 			//displayPic = imageToByte.imageToBytes(new File("C:\\Users\\vaishu\\Desktop\\diagram\\artisty-devushki-lyudi-muzyka-33759.jpg"));
-			UserProfile = new UserProfile(empid,password,displayPic,firstName,lastName,middleName,department,asOfDate,email);
+			UserProfile = new UserProfile(empid,password,displayPic,firstName,lastName,middleName,department,asOfDate,email,totalScore);
 			userProfileService.saveUserProfileService(UserProfile);
 		}catch (Exception ex) {
 		      return new Success("sorry Try Again");
