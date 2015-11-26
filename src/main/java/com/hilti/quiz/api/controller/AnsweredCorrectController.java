@@ -1,5 +1,7 @@
 package com.hilti.quiz.api.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,6 +28,18 @@ public class AnsweredCorrectController {
 		try{
 			answeredCorrect = new AnsweredCorrect(questionId,empId);
 			answeredCorrectService.saveAnsweredCorrectService(answeredCorrect);
+		}catch (Exception ex) {
+		      return new Success("sorry Try Again");
+	    }
+	    return new Success("yes "+AnsweredCorrect.class.getName().substring(AnsweredCorrect.class.getName().lastIndexOf(".")+1)+" record created");
+		
+	}
+	@RequestMapping("/answeredCorrect/updateAllAnswers")
+	public @ResponseBody Success onUpdateAllAnswers(ArrayList<AnsweredCorrect> allAnswers ){
+		AnsweredCorrect answeredCorrect = null;
+		try{
+			//answeredCorrect = new AnsweredCorrect(questionId,empId);
+			answeredCorrectService.saveManyAnsweredCorrectsService(allAnswers);
 		}catch (Exception ex) {
 		      return new Success("sorry Try Again");
 	    }

@@ -1,10 +1,13 @@
 package com.hilti.quiz.api.service;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import com.hilti.quiz.api.dao.UserProfileDAO;
@@ -54,6 +57,20 @@ public class UserProfileService {
 		public UserProfile findEmpByEmailAndPasswordService(String email,String password){
 			return userProfileDao.findEmpByEmailAndPassword(email,password);
 		}
+		public List<UserProfile> findFirstByOrderBytotalScore(){
+			
+			
+			try{
+			return userProfileDao.findFirstByOrderBytotalScore().subList(0,10);
+		}
+			catch(Exception e)
+			{
+				return userProfileDao.findFirstByOrderBytotalScore();
+			}
+		}
 		
+		public List<UserProfile> findFirstAllByOrderBytotalScore(){
+			return userProfileDao.findFirstByOrderBytotalScore();
+			}
 		
 }

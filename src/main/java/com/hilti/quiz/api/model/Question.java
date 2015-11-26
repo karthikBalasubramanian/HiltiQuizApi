@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -23,21 +22,21 @@ public class Question {
 	private String text;
 	@Column(name = "difficulty")
 	private int difficulty;
-	@Lob
+	
 	@Column(name = "option_a")
-	private byte[] optionA;
-	@Lob
+	private String optionA;
+	
 	@Column(name = "option_b")
-	private byte[] optionB;
-	@Lob
+	private String optionB;
+	
 	@Column(name = "option_c")
-	private byte[] optionC;
-	@Lob
+	private String optionC;
+	
 	@Column(name = "option_d")
-	private byte[] optionD;
-	@Lob
+	private String optionD;
+	
 	@Column(name = "correct_ans")
-	private byte[] correctAns;
+	private String correctAns;
 	@Column(name = "status")
 	private String status;
 	
@@ -74,43 +73,43 @@ public class Question {
 		this.difficulty = difficulty;
 	}
 
-	public byte[] getOptionA() {
+	public String getOptionA() {
 		return optionA;
 	}
 
-	public void setOptionA(byte[] optionA) {
+	public void setOptionA(String optionA) {
 		this.optionA = optionA;
 	}
 
-	public byte[] getOptionB() {
+	public String getOptionB() {
 		return optionB;
 	}
 
-	public void setOptionB(byte[] optionB) {
+	public void setOptionB(String optionB) {
 		this.optionB = optionB;
 	}
 
-	public byte[] getOptionC() {
+	public String getOptionC() {
 		return optionC;
 	}
 
-	public void setOptionC(byte[] optionC) {
+	public void setOptionC(String optionC) {
 		this.optionC = optionC;
 	}
 
-	public byte[] getOptionD() {
+	public String getOptionD() {
 		return optionD;
 	}
 
-	public void setOptionD(byte[] optionD) {
+	public void setOptionD(String optionD) {
 		this.optionD = optionD;
 	}
 
-	public byte[] getCorrectAns() {
+	public String getCorrectAns() {
 		return correctAns;
 	}
 
-	public void setCorrectAns(byte[] correctAns) {
+	public void setCorrectAns(String correctAns) {
 		this.correctAns = correctAns;
 	}
 
@@ -123,8 +122,8 @@ public class Question {
 	}
 
 	
-	public Question(String type, String text, int difficulty, byte[] optionA, byte[] optionB, byte[] optionC,
-			byte[] optionD, byte[] correctAns, String status) {
+	public Question(String type, String text, int difficulty, String optionA, String optionB,String optionC,
+			String optionD, String correctAns, String status) {
 		super();
 		this.type = type;
 		this.text = text;
@@ -143,8 +142,8 @@ public class Question {
 		this.qid = qid;
 	}
 
-	public Question(int qid, String type, String text, int difficulty, byte[] optionA, byte[] optionB, byte[] optionC,
-			byte[] optionD, byte[] correctAns, String status) {
+	public Question(int qid, String type, String text, int difficulty, String optionA, String optionB, String optionC,
+			String optionD, String correctAns, String status) {
 		super();
 		this.qid = qid;
 		this.type = type;

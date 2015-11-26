@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
 @Table(name="user_profile")
 public class UserProfile {
